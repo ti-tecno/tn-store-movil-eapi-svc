@@ -5,9 +5,11 @@ types:
   user-login: !include /data_type/user_login.raml
   recover_password: !include /data_type/post_recover_password.raml
   new_password: !include /data_type/patch_new_password.raml
+  post_product: !include data_type/product.raml
+  load: !include data_type/load.raml
 traits:
   secure: !include /trait/secure.raml
-/user:
+/users:
   is: [secure]
   post:
     description: este servicio regitra al administrador de la compania
@@ -20,7 +22,7 @@ traits:
       201:
         body:
             application/json:
-                example: !include /example/response/post_register.json
+                example: !include /example/responses/post_register.json
   /login:
     is: [secure]
     post:
@@ -36,7 +38,7 @@ traits:
         200:
           body:
               application/json:
-                  example: !include /example/response/post_login.json
+                  example: !include /example/responses/post_login.json
   /recoverPassword:
     is: [secure]
     post:
@@ -48,8 +50,9 @@ traits:
         200:
           body:
             application/json:
-              example: !include /example/response/recoverPassword.json
+              example: !include /example/responses/recoverPassword.json
   /new_password:
+    is: [secure]
     patch:
       queryParameters:
         email:
@@ -64,3 +67,47 @@ traits:
           body:
             application/json:
               example: !include /example/patch_new_password.json
+/products:
+  is: [secure]
+  post:
+    description: Este servicio permite crear el objeto producto
+    body:
+        application/json:
+            type: post_product
+    responses:
+        201:
+          body:
+            application/json:
+              example: !include example/responses/post_Product.json
+  get:
+    description: Este servicio trae el objeto product de la BD
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include example/responses/get_Product.json
+/loads:
+    is: [secure]
+    post:
+      description: Este servicio permite crear el objeto load
+      body:
+        application/json:
+          type: load
+      responses:
+        201:
+          body:
+            application/json:
+              example: !include example/responses/post_load.json
+    get:
+      queryParameters:
+        name_load:
+          type: string
+          required: false
+      description: Este servicio trae todas registrados en Db
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include example/responses/get_load.json
+                
+                            
