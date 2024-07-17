@@ -134,6 +134,15 @@ output application/json
 } as Object {encoding: "UTF-8", mediaType: "application/json"}]]></ee:set-payload>
             </ee:message>
         </ee:transform>
+		<ee:transform doc:name="Transform Message" doc:id="56532908-b59a-4974-8ab2-a259b9f85529" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/java
+---
+{
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
     </flow>
     <flow name="get:\loads:tn-store-movil-xapi-svc-config">
         <ee:transform doc:name="Transform Message">
