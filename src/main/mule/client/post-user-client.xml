@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="ce5d0de1-5fb8-431e-bac3-e9838e709cbd" basePath="/empresa" >
+		<http:request-connection host="tn-store-user-papi-sv.us-e2.cloudhub.io" port="80"/>
+	</http:request-config>
+	<sub-flow name="post-user-clientSub_Flow" doc:id="1f56e3bf-a02e-43de-af1e-3ec1caf6447d" >
+		<http:request method="POST" doc:name="Request" doc:id="7a01272d-d63d-4aaf-ae6c-6597516924da" config-ref="HTTP_Request_configuration" path="/user"/>
+	</sub-flow>
+</mule>

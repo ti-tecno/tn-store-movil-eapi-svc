@@ -1,0 +1,66 @@
+#%RAML 1.0
+title: tn-store-movil-api-svc
+types:
+  register_admin: !include /data_type/user_register.raml
+  user-login: !include /data_type/user_login.raml
+  recover_password: !include /data_type/post_recover_password.raml
+  new_password: !include /data_type/patch_new_password.raml
+traits:
+  secure: !include /trait/secure.raml
+/user:
+  is: [secure]
+  post:
+    description: este servicio regitra al administrador de la compania
+    body:
+      application/json:
+        type: register_admin
+    responses:
+      500:
+        description: Bad response from authorization server, or WSDL SOAP Fault error
+      201:
+        body:
+            application/json:
+                example: !include /example/response/post_register.json
+  /login:
+    is: [secure]
+    post:
+      description: este servicio permite logear el usuario
+      body:
+        application/json:
+          type: user-login
+      responses:
+        401:
+          description: Unauthorized or invalid client application credentials
+        500:
+          description: Bad response from authorization server, or WSDL SOAP Fault error
+        200:
+          body:
+              application/json:
+                  example: !include /example/response/post_login.json
+  /recoverPassword:
+    is: [secure]
+    post:
+      description: Estre servicio no ayuda a recuperar la contraseña guadada en la base de datos
+      body:
+        application/json:
+          type: recover_password
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include /example/response/recoverPassword.json
+  /new_password:
+    patch:
+      queryParameters:
+        email:
+          type: string
+          required: true
+      description: Este servicio acualizara la contraseña
+      body:
+        application/json:
+          type: new_password
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include /example/patch_new_password.json

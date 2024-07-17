@@ -1,0 +1,35 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  name: 
+    type: string
+    required: true
+    example: "mario"
+  last_name: 
+    type: string
+    required: true
+    example: "velazquez"
+  business: 
+    type: string
+    required: true
+    example: "tortas don memo"
+  phone:
+    type: number
+    required: false
+    example: 2281092312
+  userName: 
+    type: string
+    required: true
+    example: "ibra321"
+    minLength: 5
+    maxLength: 15
+  password: 
+    type: string
+    required: true
+    example: "hhhh222"
+    minLength: 5
+    maxLength: 15
+  email:
+    type: string
+    required: true
+    example: "mario@gamil.com"

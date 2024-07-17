@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="post-user-login-handlerSub_Flow" doc:id="c56bda20-1f6b-4956-b234-346c7a476b07" >
+		<flow-ref doc:name="Flow Reference" doc:id="9a7f9fba-cc78-4765-8dcf-56760775139f" name="post-user-login-orchestratorSub_Flow"/>
+	</sub-flow>
+</mule>
