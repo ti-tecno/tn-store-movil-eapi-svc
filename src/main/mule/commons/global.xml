@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="a40d9234-c2b6-41ad-8a62-9e7850de5e7e" basePath="/api"   >
+		<http:request-connection host="tn-mongo-sapi-svc1.us-e2.cloudhub.io"/>
+	</http:request-config>	
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="641fec10-4cf6-4ac2-96b2-f9dc905e9eec" basePath="/empresa" >
+		<http:request-connection host="tn-mongo-sapi-svc1.us-e2.cloudhub.io" port="80" />
+		<http:default-headers >
+			<http:default-header key="client_id" value="fb9200a3e5d2409290ab52a90eb99bff" />
+			<http:default-header key="client_secret" value="e4848C3a2Ef7429381B9dF7E0B6b0903" />
+		</http:default-headers>
+	</http:request-config>
+	<http:listener-config name="tn-store-movil-xapi-svc-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="8081" />
+    </http:listener-config>
+</mule>

@@ -1,0 +1,27 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  name:
+    type: string
+    example: "jabon zote"
+    required: true
+  purchase_price:
+    type: number
+    required: true
+    example: 40
+  sale_price:
+    type: number
+    required: true
+    example: 50
+  type:
+    type: string
+    required: true
+    example: "abarrotes"
+  quantity:
+    type: number
+    required: true
+    example: 10
+  date created:
+    type: date-only
+    required: true
+    example: "2024-10-26"
