@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration2" doc:name="HTTP Request configuration" doc:id="920b2a0f-62e7-437e-b470-08d0b9a442da" basePath="/api" >
+		<http:request-connection host="tn-mongo-sapi-svc1.us-e2.cloudhub.io" port="80" />
+	</http:request-config>
+	<sub-flow name="get-inventory-clientSub_Flow" doc:id="1775052d-361f-42c5-86c5-74d7cdc0a46f" >
+		<http:request method="GET" doc:name="Request" doc:id="ef4a875f-8b70-4f62-867b-736098d9dbdf" config-ref="HTTP_Request_configuration2" path="/v1/inventories">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	product_type : attributes.queryParams.product_type
+}]]]></http:query-params>
+		</http:request>
+	</sub-flow>
+</mule>
