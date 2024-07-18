@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="post-loads-handlerSub_Flow" doc:id="773ce124-cee4-4a79-9cb5-aacc11c4d09b" >
+		<flow-ref doc:name="go to orchestrator" doc:id="610a1b98-8b81-4677-a4f3-e5fac8f04ec5" name="post-loads-orchestratorSub_Flow"/>
+	</sub-flow>
+</mule>

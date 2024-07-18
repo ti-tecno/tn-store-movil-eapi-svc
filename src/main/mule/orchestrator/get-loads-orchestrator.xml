@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="get-loads-orchestratorSub_Flow" doc:id="e43d96f3-99e0-49b1-b255-ab5fa5a88528" >
+		<flow-ref doc:name="go to client" doc:id="5cddf6d5-b3e9-4fa4-a4d7-59c4b86b497c" name="get-loads-clientSub_Flow"/>
+	</sub-flow>
+</mule>

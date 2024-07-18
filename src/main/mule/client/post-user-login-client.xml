@@ -5,14 +5,14 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="b86674b6-e8bf-426f-8169-58ba3a211c3b" basePath="/empresa" >
-		<http:request-connection host="tn-store-user-papi-sv.us-e2.cloudhub.io" port="80" />
-		<http:default-headers >
-			<http:default-header key="client_id" value="fb9200a3e5d2409290ab52a90eb99bff" />
-			<http:default-header key="client_secret" value="e4848C3a2Ef7429381B9dF7E0B6b0903" />
-		</http:default-headers>
-	</http:request-config>
+	
 	<sub-flow name="post-user-login-clientSub_Flow" doc:id="8c9365c0-4b6b-4189-be62-93620b9a788f" >
-		<http:request method="POST" doc:name="Request" doc:id="01e1a4b0-b8a2-4de6-9f37-f3b7847107bf" config-ref="HTTP_Request_configuration" path="user/login"/>
+		<http:request method="GET" doc:name="Request" doc:id="01e1a4b0-b8a2-4de6-9f37-f3b7847107bf" config-ref="HTTP_Request_configuration" path="/loads">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	name_load : attribute.queryParams.name_load
+}]]]></http:query-params>
+		</http:request>
 	</sub-flow>
 </mule>
