@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="post-inventory-orchestratorSub_Flow" doc:id="26e37e48-ba1e-4af2-a1d4-9dd93407f207" >
+		<flow-ref doc:name="Go to client" doc:id="9ec9119e-5c88-4034-9a6e-b705c36bbaf7" name="post-inventory-clientSub_Flow"/>
+	</sub-flow>
+</mule>

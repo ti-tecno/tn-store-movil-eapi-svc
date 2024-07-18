@@ -7,8 +7,11 @@ types:
   new_password: !include /data_type/patch_new_password.raml
   post_product: !include data_type/product.raml
   load: !include data_type/load.raml
+  inventory: !include /data_type/post_inventory.raml
+  
 traits:
   secure: !include /trait/secure.raml
+  getInventory: !include /trait/get_inventory.raml
 /users:
   is: [secure]
   post:
@@ -109,5 +112,22 @@ traits:
           body:
             application/json:
               example: !include example/responses/get_load.json
-                
-                            
+/inventory:
+  post:
+    description: This service adds products to inventory
+    body:
+      application/json:
+        type: inventory
+    responses:
+      201:
+        body:
+          application/json:
+            example: !include /example/responses/post_inventory.json
+  get:
+    is: [getInventory]      
+    description: This service calls what is requested 
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include /example/responses/get_inventory.json    

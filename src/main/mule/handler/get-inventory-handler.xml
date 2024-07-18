@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="get-inventory-handlerSub_Flow" doc:id="c91553b0-1f81-4a15-838f-95f973cc94f6" >
+		<flow-ref doc:name="Go to orchestrator" doc:id="429fe3cf-e9bc-496f-bf20-7e026dd98b52" name="get-inventory-orchestratorSub_Flow"/>
+	</sub-flow>
+</mule>
