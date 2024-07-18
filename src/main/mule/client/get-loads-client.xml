@@ -5,6 +5,9 @@
 	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration1" doc:name="HTTP Request configuration" doc:id="ce7edb35-8213-4f3c-a2f8-5f6869d1cd97" basePath="/api" >
+		<http:request-connection host="tn-store-delivey-papi-svc.us-e2.cloudhub.io" port="80" />
+	</http:request-config>
 	<sub-flow name="get-loads-clientSub_Flow" doc:id="b6e41d30-ae6b-4aef-9946-15796968ced1" >
 		<http:request method="GET" doc:name="Request" doc:id="297deff8-2f2b-479c-a7ba-5cf5de1fc073" config-ref="HTTP_Request_configuration1" path="/v1/loads">
 			<http:query-params ><![CDATA[#[output application/java

@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	
 	<sub-flow name="post-user-login-clientSub_Flow" doc:id="8c9365c0-4b6b-4189-be62-93620b9a788f" >
-		<http:request method="GET" doc:name="Request" doc:id="01e1a4b0-b8a2-4de6-9f37-f3b7847107bf" config-ref="HTTP_Request_configuration" path="/loads">
+		<http:request method="GET" doc:name="Request" doc:id="01e1a4b0-b8a2-4de6-9f37-f3b7847107bf" config-ref="HTTP_Request_configuration" path="/v1/users/login">
 			<http:query-params ><![CDATA[#[output application/java
 ---
 {
