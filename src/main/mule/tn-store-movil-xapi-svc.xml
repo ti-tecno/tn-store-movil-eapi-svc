@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
+    <http:listener-config name="tn-store-movil-xapi-svc-httpListenerConfig">
+        <http:listener-connection host="${http.listener.host}" port="${http.listener.port}" />
+    </http:listener-config>
     <apikit:config name="tn-store-movil-xapi-svc-config" api="tn-store-movil-xapi-svc.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <global-property doc:name="Global Property" doc:id="5e1ff343-a188-4b1b-bba6-3d0fd44c3616" name="env" value="local" />
     <flow name="tn-store-movil-xapi-svc-main">
@@ -149,10 +152,10 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="post:\loads:application\json:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Flow Reference" doc:id="6db4009e-db48-4430-8f39-c6b6840addf2" name="post-loads-handlerSub_Flow"/>
+        <flow-ref doc:name="Flow Reference" doc:id="6db4009e-db48-4430-8f39-c6b6840addf2" name="post-loads-handlerSub_Flow" />
     </flow>
     <flow name="post:\users\login:application\json:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Go to handler" doc:id="89ee8cea-0bbd-4a66-9396-9c502b2023fb" name="post-user-login-handlerSub_Flow"/>
+        <flow-ref doc:name="Go to handler" doc:id="89ee8cea-0bbd-4a66-9396-9c502b2023fb" name="post-user-login-handlerSub_Flow" />
     </flow>
     <flow name="post:\products:application\json:tn-store-movil-xapi-svc-config">
         <ee:transform doc:name="Transform Message">
@@ -167,15 +170,15 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="post:\users\recoverPassword:application\json:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Flow Reference" doc:id="cf363868-0b24-4ae2-9612-77a88fad8cfa" name="post-user-recoverPassword-handlerSub_Flow"/>
+        <flow-ref doc:name="Flow Reference" doc:id="cf363868-0b24-4ae2-9612-77a88fad8cfa" name="post-user-recoverPassword-handlerSub_Flow" />
     </flow>
     <flow name="post:\users:application\json:tn-store-movil-xapi-svc-config">
-        <flow-ref doc:name="Go to handler" doc:id="16dd18e2-9d0f-4e6e-b641-5efaf6dab025" name="post-user-handlerSub_Flow"/>
+        <flow-ref doc:name="Go to handler" doc:id="16dd18e2-9d0f-4e6e-b641-5efaf6dab025" name="post-user-handlerSub_Flow" />
     </flow>
-    <flow name="get:\inventory:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Go to handler" doc:id="5b8deb09-56c4-42bf-840e-8c93f424c82c" name="get-inventory-handlerSub_Flow"/>
+    <flow name="get:\inventories:tn-store-movil-xapi-svc-config">
+		<flow-ref doc:name="Go to handler" doc:id="7f44ce0a-8560-489d-964a-001145468a1a" name="get-inventory-handlerSub_Flow" />
     </flow>
-    <flow name="post:\inventory:application\json:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Go to handler" doc:id="258809e6-bdd8-4074-9ad6-785e426e88ed" name="post-inventory-handlerSub_Flow"/>
+    <flow name="post:\inventories:application\json:tn-store-movil-xapi-svc-config">
+		<flow-ref doc:name="Go to handler" doc:id="650179c8-a9b0-40ac-9cba-202426352537" name="post-inventory-handlerSub_Flow" />
     </flow>
 </mule>
