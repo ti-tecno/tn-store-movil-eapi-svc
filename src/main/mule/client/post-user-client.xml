@@ -6,7 +6,7 @@
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
 	
-	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="348fef4b-b964-414b-9d90-e3db360a10bc" basePath="/api" >
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="348fef4b-b964-414b-9d90-e3db360a10bc" basePath="/empresa" >
 		<http:request-connection host="tn-store-user-papi-svc.us-e2.cloudhub.io" port="80" />
 	</http:request-config>
 	<sub-flow name="post-user-clientSub_Flow" doc:id="1f56e3bf-a02e-43de-af1e-3ec1caf6447d" >
