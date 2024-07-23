@@ -6,7 +6,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
-    	
+  	  <http:listener-config name="tn-store-movil-xapi-svc-httpListenerConfig">
+        <http:listener-connection host="${http.listener.host}" port="${http.listener.port}" />
+    </http:listener-config>
 	<configuration-properties doc:name="Configuration properties" doc:id="446b1594-50d3-41e1-aa85-9bbebb062c46" file="${env}.properties" />
 	<global-property doc:name="Global Property" doc:id="95d15df5-f63e-41e7-87eb-96779698429f" name="env" value="local" />
 	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="59e7ace4-d3d5-4c25-96a5-1e830c0ca429" flowRef="tn-store-movil-xapi-svc-main" />

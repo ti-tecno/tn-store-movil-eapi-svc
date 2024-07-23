@@ -113,6 +113,7 @@ traits:
             application/json:
               example: !include example/responses/get_load.json
 /inventories:
+  is: [secure]
   post:
     description: This service adds products to inventory
     body:

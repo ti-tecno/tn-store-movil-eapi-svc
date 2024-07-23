@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd ">
-    <http:listener-config name="tn-store-movil-xapi-svc-httpListenerConfig">
-        <http:listener-connection host="${http.listener.host}" port="${http.listener.port}" />
-    </http:listener-config>
+   
     <apikit:config name="tn-store-movil-xapi-svc-config" api="tn-store-movil-xapi-svc.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <global-property doc:name="Global Property" doc:id="5e1ff343-a188-4b1b-bba6-3d0fd44c3616" name="env" value="local" />
     <flow name="tn-store-movil-xapi-svc-main">
@@ -176,9 +174,9 @@ output application/json
         <flow-ref doc:name="Go to handler" doc:id="16dd18e2-9d0f-4e6e-b641-5efaf6dab025" name="post-user-handlerSub_Flow" />
     </flow>
     <flow name="get:\inventories:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Go to handler" doc:id="7f44ce0a-8560-489d-964a-001145468a1a" name="get-inventory-handlerSub_Flow" />
+        <flow-ref doc:name="Go to handler" doc:id="7f44ce0a-8560-489d-964a-001145468a1a" name="get-inventory-handlerSub_Flow" />
     </flow>
     <flow name="post:\inventories:application\json:tn-store-movil-xapi-svc-config">
-		<flow-ref doc:name="Go to handler" doc:id="650179c8-a9b0-40ac-9cba-202426352537" name="post-inventory-handlerSub_Flow" />
+        <flow-ref doc:name="Go to handler" doc:id="650179c8-a9b0-40ac-9cba-202426352537" name="post-inventory-handlerSub_Flow" />
     </flow>
 </mule>

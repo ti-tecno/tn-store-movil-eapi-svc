@@ -58,7 +58,7 @@
 		<dependency>
 			<groupId>93872d8f-f0fc-43a1-85df-b260d4b6bf8f</groupId>
 			<artifactId>tn-store-movil-xapi-svc</artifactId>
-			<version>1.0.8</version>
+			<version>1.0.9</version>
 			<classifier>raml</classifier>
 			<type>zip</type>
 		</dependency>

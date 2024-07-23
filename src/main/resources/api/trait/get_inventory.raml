@@ -1,6 +1,10 @@
 #%RAML 1.0 Trait
 description: 
 queryParameters:
+  product_type:
+    type: string
+    required: true
+    example: "abarrotes"
   product: 
     type: string
     required: false
@@ -9,15 +13,3 @@ queryParameters:
     type: number
     required: false
     example: 50
-  purchase_price:
-    type: number
-    required: false
-    example: 10
-  total_quantity:
-    type: number
-    required: false
-    example: 500
-  product_type:
-    type: string
-    required: true
-    example: "abarratos"
